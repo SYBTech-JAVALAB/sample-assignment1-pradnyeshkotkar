@@ -1,0 +1,44 @@
+package com;
+class Book
+{
+  private String title; private String author; private double price; private String ISBN;
+  private int currentStockLevel;
+  public Book(String title, String author, double price, String ISBN, int currentStockLevel)
+  {
+    this.title = title; this.author = author;
+    this.price = price; this.ISBN = ISBN;
+    this.currentStockLevel = currentStockLevel;
+  }
+  public void displayBookDetails()
+  {
+
+    System.out.println("===== Book Details ====="); System.out.println("Title: " +
+    title); System.out.println("Author: " + author); System.out.println("Price: " + price);
+    System.out.println("ISBN: " + ISBN);
+    System.out.println("Current Stock Level: " + currentStockLevel);
+  }
+  public void applyDiscount(double percentage)
+  {
+    price = price - (price * percentage / 100);
+  }
+  public void addStock(int quantity)
+  {
+    currentStockLevel += quantity;
+  }
+  public boolean isAvailable()
+  {
+    return currentStockLevel > 0;
+  }
+}
+  public class Practical1 {
+    public static void main(String[] args) { 
+      Book novel = new Book("Sword Art Online", "Kazuto Kirigaya", 3500.0,"911-01-66-912",6);
+      novel.displayBookDetails(); novel.applyDiscount(20); novel.addStock(5);
+      System.out.println("\nAfter discount and restock:");
+
+      novel.displayBookDetails();
+
+      System.out.println("Available for purchase: " + novel.isAvailable());
+
+  }
+}
